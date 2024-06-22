@@ -10,3 +10,7 @@ CREATE TABLE productos(
     nombre_archivo VARCHAR(500),
     mime_type VARCHAR(500)
 )
+
+SELECT * FROM productos
+
+DELETE FROM productos
