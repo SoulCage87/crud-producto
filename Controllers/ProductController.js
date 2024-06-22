@@ -46,7 +46,14 @@ const postProducts = async (req, res) => {
                  RETURNING *`
 
     const result = await db.query(sql, params);
-    res.json(result);
+    // Convertir el buffer a una cadena base64
+    const base64Image = buffer.toString('base64');
+
+    
+    res.json({
+     ...result,
+      foto: `data:${mimetype};base64,${base64Image}`,
+    });
   } catch (error) {
     res.status(500).json(error.message)
   }
